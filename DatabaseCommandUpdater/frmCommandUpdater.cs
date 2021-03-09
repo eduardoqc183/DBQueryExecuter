@@ -18,7 +18,7 @@ namespace DatabaseCommandUpdater
         private LongOperation _longOperation;
         private ConexionData _conexionData;
         private bool _cancelar = false;
-
+        private bool _isrunning = false;
         public TipoMotor TipoMotor => comboBox1.SelectedIndex == 0 ? TipoMotor.Mssql : TipoMotor.Pgsql;
 
         private List<DbInfo> _modeldbs;
@@ -114,6 +114,7 @@ namespace DatabaseCommandUpdater
                     var g = new GestorBL(TipoMotor);
                     ultraGrid1.DisplayLayout.Bands[0].Columns["Seleccionado"].Hidden = true;
                     ultraGrid1.DisplayLayout.Bands[0].Columns["IconoEstado"].Hidden = false;
+                    _isrunning = true;
 
                     foreach (var modelDb in ModelDbs)
                     {
@@ -121,30 +122,48 @@ namespace DatabaseCommandUpdater
                             modelDb.Estado = EstadoDB.EnPausa;
                     }
 
+                    progressBar1.Value = 0;
+                    
                     btnAgregarComando.Enabled = false;
                     btnExecute.Enabled = false;
                     btnCancelar.Enabled = true;
-                    foreach (var dbInfo in ModelDbs.Where(w => w.Seleccionado))
+                    checkBox1.Visible = false;
+                    var cmds = ObtenerComandos();
+                    int c = 0;
+                    var seleccionados = ModelDbs.Where(w => w.Seleccionado).ToList();
+                    if(seleccionados.Any())
                     {
-                        if (!_cancelar)
+                        foreach (var dbInfo in seleccionados)
                         {
-                            try
+                            if (!_cancelar)
                             {
-                                dbInfo.Estado = EstadoDB.Ejecutando;
-                                await g.CompletarComandos(ConexionData, dbInfo.DbName, ObtenerComandos());
-                                dbInfo.Estado = EstadoDB.Terminado;
+                                try
+                                {
+                                    var percent = (c * 100) / seleccionados.Count;
+                                    if (percent != progressBar1.Value)
+                                    {
+                                        progressBar1.Value = percent;
+                                        progressBar1.Refresh();
+                                    }
+                                    dbInfo.Estado = EstadoDB.Ejecutando;
+                                    await g.CompletarComandos(ConexionData, dbInfo.DbName, cmds);
+                                    dbInfo.Estado = EstadoDB.Terminado;
+                                }
+                                catch (Exception exception)
+                                {
+                                    dbInfo.Estado = EstadoDB.Error;
+                                    dbInfo.Error = exception.Message + "\n" + exception.InnerException?.Message;
+                                    ultraGrid1.Rows.Refresh(RefreshRow.FireInitializeRow);
+                                }
+                                finally
+                                {
+                                    c++;
+                                    ultraGrid1.Rows.Refresh(RefreshRow.ReloadData);
+                                }
                             }
-                            catch (Exception exception)
-                            {
-                                dbInfo.Estado = EstadoDB.Error;
-                                dbInfo.Error = exception.Message + "\n" + exception.InnerException?.Message;
-                                ultraGrid1.Rows.Refresh(RefreshRow.FireInitializeRow);
-                            }
-                        }
-                      
-                    }
 
-                    ultraGrid1.Rows.Refresh(RefreshRow.ReloadData);
+                        }
+                    }
 
                     if (!_cancelar)
                     {
@@ -158,8 +177,7 @@ namespace DatabaseCommandUpdater
             }
             catch (Exception exception)
             {
-                Console.WriteLine(exception);
-                throw;
+                MessageBox.Show(exception.Message, @"Error en el proceso", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
@@ -167,6 +185,7 @@ namespace DatabaseCommandUpdater
                 btnAgregarComando.Enabled = true;
                 btnExecute.Enabled = true;
                 btnCancelar.Enabled = false;
+                _isrunning = false;
             }
         }
 
@@ -192,6 +211,28 @@ namespace DatabaseCommandUpdater
         private void button2_Click(object sender, EventArgs e)
         {
             _cancelar = true;
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            foreach (var row in ultraGrid1.Rows)
+            {
+                if (row.IsFilterRow) continue;
+                if (row.IsFilteredOut) continue;
+
+                var item = (DbInfo)row.ListObject;
+                item.Seleccionado = checkBox1.Checked;
+            }
+
+            ultraGrid1.Rows.Refresh(RefreshRow.ReloadData);
+        }
+
+        private void frmCommandUpdater_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (_isrunning)
+            {
+                e.Cancel = true;
+            }
         }
     }
 }

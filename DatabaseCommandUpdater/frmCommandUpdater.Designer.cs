@@ -36,9 +36,9 @@ namespace DatabaseCommandUpdater
             Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn2 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("Seleccionado");
             Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn3 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("Estado");
             Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn4 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("EstadoInfo");
-            Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn7 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("IconoEstado");
+            Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn5 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("IconoEstado");
             Infragistics.Win.Appearance appearance2 = new Infragistics.Win.Appearance();
-            Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn17 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("Error");
+            Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn6 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("Error");
             Infragistics.Win.Appearance appearance3 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance4 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance5 = new Infragistics.Win.Appearance();
@@ -65,14 +65,16 @@ namespace DatabaseCommandUpdater
             this.label1 = new System.Windows.Forms.Label();
             this.panelAcciones = new System.Windows.Forms.TableLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.ultraGrid1 = new Infragistics.Win.UltraWinGrid.UltraGrid();
             this.panel2 = new System.Windows.Forms.Panel();
             this.ucTiles = new Infragistics.Win.Misc.UltraTilePanel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.btnExecute = new System.Windows.Forms.Button();
             this.btnAgregarComando = new System.Windows.Forms.Button();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.ultraTile1 = new Infragistics.Win.Misc.UltraTile();
-            this.btnCancelar = new System.Windows.Forms.Button();
             this.bsConexion = new System.Windows.Forms.BindingSource(this.components);
             this.bsDbs = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanel1.SuspendLayout();
@@ -95,13 +97,15 @@ namespace DatabaseCommandUpdater
             this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.panelAcciones, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.panel4, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.progressBar1, 0, 3);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 3;
+            this.tableLayoutPanel1.RowCount = 4;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.46676F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 89.53324F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 51F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1069, 707);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
@@ -121,7 +125,7 @@ namespace DatabaseCommandUpdater
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1063, 62);
+            this.panel1.Size = new System.Drawing.Size(1063, 60);
             this.panel1.TabIndex = 0;
             // 
             // label5
@@ -236,21 +240,32 @@ namespace DatabaseCommandUpdater
             this.panelAcciones.Controls.Add(this.panel2, 0, 0);
             this.panelAcciones.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelAcciones.Enabled = false;
-            this.panelAcciones.Location = new System.Drawing.Point(3, 71);
+            this.panelAcciones.Location = new System.Drawing.Point(3, 69);
             this.panelAcciones.Name = "panelAcciones";
             this.panelAcciones.RowCount = 1;
             this.panelAcciones.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.panelAcciones.Size = new System.Drawing.Size(1063, 581);
+            this.panelAcciones.Size = new System.Drawing.Size(1063, 563);
             this.panelAcciones.TabIndex = 1;
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.checkBox1);
             this.panel3.Controls.Add(this.ultraGrid1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(526, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(534, 575);
+            this.panel3.Size = new System.Drawing.Size(534, 557);
             this.panel3.TabIndex = 2;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(27, 24);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(15, 14);
+            this.checkBox1.TabIndex = 1;
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // ultraGrid1
             // 
@@ -266,8 +281,8 @@ namespace DatabaseCommandUpdater
             ultraGridColumn1.Width = 291;
             ultraGridColumn2.FilterOperandStyle = Infragistics.Win.UltraWinGrid.FilterOperandStyle.None;
             ultraGridColumn2.Header.Caption = "";
-            ultraGridColumn2.Header.CheckBoxSynchronization = Infragistics.Win.UltraWinGrid.HeaderCheckBoxSynchronization.Band;
-            ultraGridColumn2.Header.CheckBoxVisibility = Infragistics.Win.UltraWinGrid.HeaderCheckBoxVisibility.Always;
+            ultraGridColumn2.Header.CheckBoxSynchronization = Infragistics.Win.UltraWinGrid.HeaderCheckBoxSynchronization.None;
+            ultraGridColumn2.Header.CheckBoxVisibility = Infragistics.Win.UltraWinGrid.HeaderCheckBoxVisibility.Never;
             ultraGridColumn2.Header.Editor = null;
             ultraGridColumn2.Header.VisiblePosition = 0;
             ultraGridColumn2.Width = 67;
@@ -280,25 +295,25 @@ namespace DatabaseCommandUpdater
             ultraGridColumn4.Header.VisiblePosition = 3;
             ultraGridColumn4.Width = 112;
             appearance2.ImageHAlign = Infragistics.Win.HAlign.Center;
-            ultraGridColumn7.CellAppearance = appearance2;
-            ultraGridColumn7.FilterOperandStyle = Infragistics.Win.UltraWinGrid.FilterOperandStyle.None;
-            ultraGridColumn7.Header.Caption = "";
-            ultraGridColumn7.Header.Editor = null;
-            ultraGridColumn7.Header.VisiblePosition = 4;
-            ultraGridColumn7.Hidden = true;
-            ultraGridColumn7.Width = 23;
-            ultraGridColumn17.FilterOperandStyle = Infragistics.Win.UltraWinGrid.FilterOperandStyle.None;
-            ultraGridColumn17.Header.Editor = null;
-            ultraGridColumn17.Header.VisiblePosition = 5;
-            ultraGridColumn17.Hidden = true;
-            ultraGridColumn17.Width = 78;
+            ultraGridColumn5.CellAppearance = appearance2;
+            ultraGridColumn5.FilterOperandStyle = Infragistics.Win.UltraWinGrid.FilterOperandStyle.None;
+            ultraGridColumn5.Header.Caption = "";
+            ultraGridColumn5.Header.Editor = null;
+            ultraGridColumn5.Header.VisiblePosition = 4;
+            ultraGridColumn5.Hidden = true;
+            ultraGridColumn5.Width = 23;
+            ultraGridColumn6.FilterOperandStyle = Infragistics.Win.UltraWinGrid.FilterOperandStyle.None;
+            ultraGridColumn6.Header.Editor = null;
+            ultraGridColumn6.Header.VisiblePosition = 5;
+            ultraGridColumn6.Hidden = true;
+            ultraGridColumn6.Width = 78;
             ultraGridBand1.Columns.AddRange(new object[] {
             ultraGridColumn1,
             ultraGridColumn2,
             ultraGridColumn3,
             ultraGridColumn4,
-            ultraGridColumn7,
-            ultraGridColumn17});
+            ultraGridColumn5,
+            ultraGridColumn6});
             this.ultraGrid1.DisplayLayout.BandsSerializer.Add(ultraGridBand1);
             this.ultraGrid1.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
             this.ultraGrid1.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.True;
@@ -357,7 +372,7 @@ namespace DatabaseCommandUpdater
             this.ultraGrid1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ultraGrid1.Location = new System.Drawing.Point(0, 0);
             this.ultraGrid1.Name = "ultraGrid1";
-            this.ultraGrid1.Size = new System.Drawing.Size(534, 575);
+            this.ultraGrid1.Size = new System.Drawing.Size(534, 557);
             this.ultraGrid1.TabIndex = 0;
             this.ultraGrid1.Text = "Bases de datos";
             this.ultraGrid1.InitializeRow += new Infragistics.Win.UltraWinGrid.InitializeRowEventHandler(this.ultraGrid1_InitializeRow);
@@ -368,7 +383,7 @@ namespace DatabaseCommandUpdater
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(517, 575);
+            this.panel2.Size = new System.Drawing.Size(517, 557);
             this.panel2.TabIndex = 1;
             // 
             // ucTiles
@@ -377,7 +392,7 @@ namespace DatabaseCommandUpdater
             this.ucTiles.Location = new System.Drawing.Point(0, 0);
             this.ucTiles.Name = "ucTiles";
             this.ucTiles.NormalModeDimensions = new System.Drawing.Size(0, 0);
-            this.ucTiles.Size = new System.Drawing.Size(517, 575);
+            this.ucTiles.Size = new System.Drawing.Size(517, 557);
             this.ucTiles.TabIndex = 0;
             // 
             // panel4
@@ -386,10 +401,25 @@ namespace DatabaseCommandUpdater
             this.panel4.Controls.Add(this.btnExecute);
             this.panel4.Controls.Add(this.btnAgregarComando);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(3, 658);
+            this.panel4.Location = new System.Drawing.Point(3, 638);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1063, 46);
+            this.panel4.Size = new System.Drawing.Size(1063, 45);
             this.panel4.TabIndex = 2;
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnCancelar.Enabled = false;
+            this.btnCancelar.Image = global::DatabaseCommandUpdater.Properties.Resources.system_close;
+            this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancelar.Location = new System.Drawing.Point(357, 7);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(148, 32);
+            this.btnCancelar.TabIndex = 2;
+            this.btnCancelar.Text = "Cancela&r";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.button2_Click);
             // 
             // btnExecute
             // 
@@ -401,7 +431,7 @@ namespace DatabaseCommandUpdater
             this.btnExecute.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnExecute.Location = new System.Drawing.Point(221, 7);
             this.btnExecute.Name = "btnExecute";
-            this.btnExecute.Size = new System.Drawing.Size(130, 33);
+            this.btnExecute.Size = new System.Drawing.Size(130, 32);
             this.btnExecute.TabIndex = 1;
             this.btnExecute.Text = "&Ejecutar";
             this.btnExecute.UseVisualStyleBackColor = true;
@@ -416,31 +446,24 @@ namespace DatabaseCommandUpdater
             this.btnAgregarComando.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAgregarComando.Location = new System.Drawing.Point(5, 7);
             this.btnAgregarComando.Name = "btnAgregarComando";
-            this.btnAgregarComando.Size = new System.Drawing.Size(210, 33);
+            this.btnAgregarComando.Size = new System.Drawing.Size(210, 32);
             this.btnAgregarComando.TabIndex = 0;
             this.btnAgregarComando.Text = "&Agregar Comando SQL";
             this.btnAgregarComando.UseVisualStyleBackColor = true;
             this.btnAgregarComando.Click += new System.EventHandler(this.button1_Click);
             // 
+            // progressBar1
+            // 
+            this.progressBar1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.progressBar1.Location = new System.Drawing.Point(3, 689);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(1063, 15);
+            this.progressBar1.TabIndex = 3;
+            // 
             // ultraTile1
             // 
             this.ultraTile1.Name = "ultraTile1";
             this.ultraTile1.TabIndex = 0;
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnCancelar.Enabled = false;
-            this.btnCancelar.Image = global::DatabaseCommandUpdater.Properties.Resources.system_close;
-            this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(357, 7);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(148, 33);
-            this.btnCancelar.TabIndex = 2;
-            this.btnCancelar.Text = "Cancela&r";
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.button2_Click);
             // 
             // bsConexion
             // 
@@ -458,12 +481,14 @@ namespace DatabaseCommandUpdater
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "frmCommandUpdater";
             this.Text = "Schema Updater";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmCommandUpdater_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panelAcciones.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ultraGrid1)).EndInit();
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ucTiles)).EndInit();
@@ -502,6 +527,8 @@ namespace DatabaseCommandUpdater
         private System.Windows.Forms.BindingSource bsDbs;
         private System.Windows.Forms.Button btnExecute;
         private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.ProgressBar progressBar1;
     }
 }
 
