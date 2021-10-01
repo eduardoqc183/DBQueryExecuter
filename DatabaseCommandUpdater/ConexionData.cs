@@ -33,7 +33,8 @@ namespace DatabaseCommandUpdater
                             DataSource = this.ServerName,
                             UserID = this.User,
                             Password = this.Password,
-                            InitialCatalog = dbname ?? "master"
+                            InitialCatalog = dbname ?? "master",
+                            Pooling = false
                         };
 
                         return new SqlConnection(cm.ConnectionString);
@@ -47,7 +48,8 @@ namespace DatabaseCommandUpdater
                             Password = this.Password,
                             Database = dbname,
                             Port = this.Port,
-                            Username = this.User
+                            Username = this.User,
+                            Pooling = false
                         };
 
                         return new NpgsqlConnection(cm.ConnectionString);
