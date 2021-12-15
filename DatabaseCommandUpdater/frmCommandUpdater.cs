@@ -55,8 +55,14 @@ namespace DatabaseCommandUpdater
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            comboBox1.SelectedIndex = 0;
             button1_Click(this, EventArgs.Empty);
+
+            comboBox1.SelectedIndex = Properties.Settings.Default.indextype;
+            ConexionData.ServerName = Properties.Settings.Default.server;
+            ConexionData.User = Properties.Settings.Default.user;
+            ConexionData.Password = Properties.Settings.Default.password;
+            ConexionData.Port = Properties.Settings.Default.puerto;
+            bsConexion.ResetBindings(true);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -96,6 +102,14 @@ namespace DatabaseCommandUpdater
                     panel1.Enabled = !ModelDbs.Any();
                     btnAgregarComando.Enabled = btnExecute.Enabled = ModelDbs.Any();
                 }
+
+                int port;
+                Properties.Settings.Default.indextype = comboBox1.SelectedIndex;
+                Properties.Settings.Default.server = textBox1.Text;
+                Properties.Settings.Default.user = textBox2.Text;
+                Properties.Settings.Default.password = textBox3.Text;
+                Properties.Settings.Default.puerto = int.TryParse(textBox4.Text, out port) ? port : 0;
+                Properties.Settings.Default.Save();
             }
             catch (Exception exception)
             {
@@ -123,7 +137,7 @@ namespace DatabaseCommandUpdater
                     }
 
                     progressBar1.Value = 0;
-                    
+
                     btnAgregarComando.Enabled = false;
                     btnExecute.Enabled = false;
                     btnCancelar.Enabled = true;
@@ -131,7 +145,7 @@ namespace DatabaseCommandUpdater
                     var cmds = ObtenerComandos();
                     int c = 0;
                     var seleccionados = ModelDbs.Where(w => w.Seleccionado).ToList();
-                    if(seleccionados.Any())
+                    if (seleccionados.Any())
                     {
                         foreach (var dbInfo in seleccionados)
                         {
@@ -194,8 +208,10 @@ namespace DatabaseCommandUpdater
             var cmds = new List<string>();
             foreach (UltraTile tile in ucTiles.Tiles)
             {
-                var ctrl = (ucCommandFrame) tile.Control;
-                cmds.Add(ctrl.QueryCommand);
+                var ctrl = (ucCommandFrame)tile.Control;
+                var ccs = ctrl.QueryCommand.Split(';');
+                ccs = ccs.Where(w => !string.IsNullOrWhiteSpace(w)).ToArray();
+                cmds.AddRange(ccs);
             }
 
             return cmds;
