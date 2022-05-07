@@ -179,8 +179,11 @@ namespace DatabaseCommandUpdater
                         }
                     }
 
+
                     if (!_cancelar)
                     {
+                        progressBar1.Value = 100;
+                        progressBar1.Refresh();
                         MessageBox.Show(@"Proceso terminado", @"Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
