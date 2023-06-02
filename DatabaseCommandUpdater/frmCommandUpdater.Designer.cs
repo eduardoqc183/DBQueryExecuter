@@ -32,13 +32,13 @@ namespace DatabaseCommandUpdater
             this.components = new System.ComponentModel.Container();
             Infragistics.Win.Appearance appearance1 = new Infragistics.Win.Appearance();
             Infragistics.Win.UltraWinGrid.UltraGridBand ultraGridBand1 = new Infragistics.Win.UltraWinGrid.UltraGridBand("DbInfo", -1);
-            Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn1 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("DbName");
-            Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn2 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("Seleccionado");
-            Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn3 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("Estado");
-            Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn4 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("EstadoInfo");
-            Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn5 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("IconoEstado");
+            Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn7 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("DbName");
+            Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn8 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("Seleccionado");
+            Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn9 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("Estado");
+            Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn10 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("EstadoInfo");
+            Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn11 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("IconoEstado");
             Infragistics.Win.Appearance appearance2 = new Infragistics.Win.Appearance();
-            Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn6 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("Error");
+            Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn12 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("Error");
             Infragistics.Win.Appearance appearance3 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance4 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance5 = new Infragistics.Win.Appearance();
@@ -164,16 +164,18 @@ namespace DatabaseCommandUpdater
             // 
             // textBox4
             // 
+            this.textBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox4.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConexion, "Port", true));
-            this.textBox4.Location = new System.Drawing.Point(499, 27);
+            this.textBox4.Location = new System.Drawing.Point(678, 27);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(112, 20);
             this.textBox4.TabIndex = 7;
             // 
             // label4
             // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(496, 11);
+            this.label4.Location = new System.Drawing.Point(675, 11);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(38, 13);
             this.label4.TabIndex = 6;
@@ -181,8 +183,9 @@ namespace DatabaseCommandUpdater
             // 
             // textBox3
             // 
+            this.textBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox3.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConexion, "Password", true));
-            this.textBox3.Location = new System.Drawing.Point(381, 27);
+            this.textBox3.Location = new System.Drawing.Point(560, 27);
             this.textBox3.Name = "textBox3";
             this.textBox3.PasswordChar = '*';
             this.textBox3.Size = new System.Drawing.Size(112, 20);
@@ -190,8 +193,9 @@ namespace DatabaseCommandUpdater
             // 
             // label3
             // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(378, 11);
+            this.label3.Location = new System.Drawing.Point(557, 11);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(56, 13);
             this.label3.TabIndex = 4;
@@ -199,16 +203,18 @@ namespace DatabaseCommandUpdater
             // 
             // textBox2
             // 
+            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConexion, "User", true));
-            this.textBox2.Location = new System.Drawing.Point(263, 27);
+            this.textBox2.Location = new System.Drawing.Point(442, 27);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(112, 20);
             this.textBox2.TabIndex = 3;
             // 
             // label2
             // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(260, 11);
+            this.label2.Location = new System.Drawing.Point(439, 11);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(32, 13);
             this.label2.TabIndex = 2;
@@ -216,10 +222,12 @@ namespace DatabaseCommandUpdater
             // 
             // textBox1
             // 
+            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConexion, "ServerName", true));
             this.textBox1.Location = new System.Drawing.Point(145, 27);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(112, 20);
+            this.textBox1.Size = new System.Drawing.Size(291, 20);
             this.textBox1.TabIndex = 1;
             // 
             // label1
@@ -252,9 +260,9 @@ namespace DatabaseCommandUpdater
             this.panel3.Controls.Add(this.checkBox1);
             this.panel3.Controls.Add(this.ultraGrid1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(526, 3);
+            this.panel3.Location = new System.Drawing.Point(527, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(534, 557);
+            this.panel3.Size = new System.Drawing.Size(533, 557);
             this.panel3.TabIndex = 2;
             // 
             // checkBox1
@@ -273,47 +281,47 @@ namespace DatabaseCommandUpdater
             appearance1.BackColor = System.Drawing.SystemColors.Window;
             appearance1.BorderColor = System.Drawing.SystemColors.InactiveCaption;
             this.ultraGrid1.DisplayLayout.Appearance = appearance1;
-            ultraGridColumn1.CellActivation = Infragistics.Win.UltraWinGrid.Activation.ActivateOnly;
-            ultraGridColumn1.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.RowSelect;
-            ultraGridColumn1.Header.Caption = "BD";
-            ultraGridColumn1.Header.Editor = null;
-            ultraGridColumn1.Header.VisiblePosition = 1;
-            ultraGridColumn1.Width = 291;
-            ultraGridColumn2.FilterOperandStyle = Infragistics.Win.UltraWinGrid.FilterOperandStyle.None;
-            ultraGridColumn2.Header.Caption = "";
-            ultraGridColumn2.Header.CheckBoxSynchronization = Infragistics.Win.UltraWinGrid.HeaderCheckBoxSynchronization.None;
-            ultraGridColumn2.Header.CheckBoxVisibility = Infragistics.Win.UltraWinGrid.HeaderCheckBoxVisibility.Never;
-            ultraGridColumn2.Header.Editor = null;
-            ultraGridColumn2.Header.VisiblePosition = 0;
-            ultraGridColumn2.Width = 67;
-            ultraGridColumn3.Header.Editor = null;
-            ultraGridColumn3.Header.VisiblePosition = 2;
-            ultraGridColumn3.Hidden = true;
-            ultraGridColumn3.Width = 37;
-            ultraGridColumn4.Header.Caption = "Estado";
-            ultraGridColumn4.Header.Editor = null;
-            ultraGridColumn4.Header.VisiblePosition = 3;
-            ultraGridColumn4.Width = 112;
+            ultraGridColumn7.CellActivation = Infragistics.Win.UltraWinGrid.Activation.ActivateOnly;
+            ultraGridColumn7.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.RowSelect;
+            ultraGridColumn7.Header.Caption = "BD";
+            ultraGridColumn7.Header.Editor = null;
+            ultraGridColumn7.Header.VisiblePosition = 1;
+            ultraGridColumn7.Width = 291;
+            ultraGridColumn8.FilterOperandStyle = Infragistics.Win.UltraWinGrid.FilterOperandStyle.None;
+            ultraGridColumn8.Header.Caption = "";
+            ultraGridColumn8.Header.CheckBoxSynchronization = Infragistics.Win.UltraWinGrid.HeaderCheckBoxSynchronization.None;
+            ultraGridColumn8.Header.CheckBoxVisibility = Infragistics.Win.UltraWinGrid.HeaderCheckBoxVisibility.Never;
+            ultraGridColumn8.Header.Editor = null;
+            ultraGridColumn8.Header.VisiblePosition = 0;
+            ultraGridColumn8.Width = 67;
+            ultraGridColumn9.Header.Editor = null;
+            ultraGridColumn9.Header.VisiblePosition = 2;
+            ultraGridColumn9.Hidden = true;
+            ultraGridColumn9.Width = 37;
+            ultraGridColumn10.Header.Caption = "Estado";
+            ultraGridColumn10.Header.Editor = null;
+            ultraGridColumn10.Header.VisiblePosition = 3;
+            ultraGridColumn10.Width = 112;
             appearance2.ImageHAlign = Infragistics.Win.HAlign.Center;
-            ultraGridColumn5.CellAppearance = appearance2;
-            ultraGridColumn5.FilterOperandStyle = Infragistics.Win.UltraWinGrid.FilterOperandStyle.None;
-            ultraGridColumn5.Header.Caption = "";
-            ultraGridColumn5.Header.Editor = null;
-            ultraGridColumn5.Header.VisiblePosition = 4;
-            ultraGridColumn5.Hidden = true;
-            ultraGridColumn5.Width = 23;
-            ultraGridColumn6.FilterOperandStyle = Infragistics.Win.UltraWinGrid.FilterOperandStyle.None;
-            ultraGridColumn6.Header.Editor = null;
-            ultraGridColumn6.Header.VisiblePosition = 5;
-            ultraGridColumn6.Hidden = true;
-            ultraGridColumn6.Width = 78;
+            ultraGridColumn11.CellAppearance = appearance2;
+            ultraGridColumn11.FilterOperandStyle = Infragistics.Win.UltraWinGrid.FilterOperandStyle.None;
+            ultraGridColumn11.Header.Caption = "";
+            ultraGridColumn11.Header.Editor = null;
+            ultraGridColumn11.Header.VisiblePosition = 4;
+            ultraGridColumn11.Hidden = true;
+            ultraGridColumn11.Width = 23;
+            ultraGridColumn12.FilterOperandStyle = Infragistics.Win.UltraWinGrid.FilterOperandStyle.None;
+            ultraGridColumn12.Header.Editor = null;
+            ultraGridColumn12.Header.VisiblePosition = 5;
+            ultraGridColumn12.Hidden = true;
+            ultraGridColumn12.Width = 78;
             ultraGridBand1.Columns.AddRange(new object[] {
-            ultraGridColumn1,
-            ultraGridColumn2,
-            ultraGridColumn3,
-            ultraGridColumn4,
-            ultraGridColumn5,
-            ultraGridColumn6});
+            ultraGridColumn7,
+            ultraGridColumn8,
+            ultraGridColumn9,
+            ultraGridColumn10,
+            ultraGridColumn11,
+            ultraGridColumn12});
             this.ultraGrid1.DisplayLayout.BandsSerializer.Add(ultraGridBand1);
             this.ultraGrid1.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
             this.ultraGrid1.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.True;
@@ -372,7 +380,7 @@ namespace DatabaseCommandUpdater
             this.ultraGrid1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ultraGrid1.Location = new System.Drawing.Point(0, 0);
             this.ultraGrid1.Name = "ultraGrid1";
-            this.ultraGrid1.Size = new System.Drawing.Size(534, 557);
+            this.ultraGrid1.Size = new System.Drawing.Size(533, 557);
             this.ultraGrid1.TabIndex = 0;
             this.ultraGrid1.Text = "Bases de datos";
             this.ultraGrid1.InitializeRow += new Infragistics.Win.UltraWinGrid.InitializeRowEventHandler(this.ultraGrid1_InitializeRow);
@@ -383,7 +391,7 @@ namespace DatabaseCommandUpdater
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(517, 557);
+            this.panel2.Size = new System.Drawing.Size(518, 557);
             this.panel2.TabIndex = 1;
             // 
             // ucTiles
@@ -392,7 +400,7 @@ namespace DatabaseCommandUpdater
             this.ucTiles.Location = new System.Drawing.Point(0, 0);
             this.ucTiles.Name = "ucTiles";
             this.ucTiles.NormalModeDimensions = new System.Drawing.Size(0, 0);
-            this.ucTiles.Size = new System.Drawing.Size(517, 557);
+            this.ucTiles.Size = new System.Drawing.Size(518, 557);
             this.ucTiles.TabIndex = 0;
             // 
             // panel4

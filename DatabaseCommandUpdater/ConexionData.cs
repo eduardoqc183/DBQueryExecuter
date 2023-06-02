@@ -46,7 +46,7 @@ namespace DatabaseCommandUpdater
                         {
                             Host = this.ServerName,
                             Password = this.Password,
-                            Database = dbname,
+                            Database = dbname ?? "postgres",
                             Port = this.Port,
                             Username = this.User,
                             Pooling = false
